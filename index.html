@@ -9,10 +9,16 @@
 <body>
     <div id="main">
         <canvas id="cv" height="600" width="600"> 
-            
         </canvas>
     </div>    
 
+    <div id="controls">
+        <p>Kontrast:</p> <input type="range" min="1" max="100" value="50" class="slider" id="contrast">
+        <p>Jasność:</p> <input type="range" min="1" max="100" value="50" class="slider" id="brightness">
+        <p>Nasycenie:</p> <input type="range" min="1" max="100" value="50" class="slider" id="saturation">
+
+    </div>
+    <div id="demo"></div>
 
     <script src="script.js"></script>
 </body>

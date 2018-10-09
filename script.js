@@ -1,7 +1,14 @@
 let img;
 let imgUrl;
 
+let display = document.querySelector("#demo");
+
 let cv = document.querySelector("#cv");
+
+let cContrast = document.querySelector("#contrast");
+display.innerHTML = cContrast.value;
+
+cContrast.oninput = function() { display.innerHTML = this.value; }
 
 
 
