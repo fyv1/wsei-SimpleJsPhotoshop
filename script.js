@@ -1,5 +1,5 @@
 let img;
-let imgUrl;
+let imgUrl = "";
 
 let display = document.querySelector("#demo");
 
