@@ -6,4 +6,7 @@ body {
 canvas {
   border: 1px solid black; }
 
+#controls button {
+  margin-top: 10px; }
+
 /*# sourceMappingURL=style.css.map */
