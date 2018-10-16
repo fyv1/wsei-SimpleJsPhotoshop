@@ -1,19 +1,47 @@
 let img;
-let imgUrl = "";
+let imgUrl = "vader.png";
 
-let display = document.querySelector("#demo");
+let cv = document.querySelector("#cv")
 
-let cv = document.querySelector("#cv");
+let context;
+
+context = cv.getContext('2d');
+img = new Image();
+img.src = imgUrl;
+
+img.addEventListener('load', function(e) {
+    context.drawImage(img,0,0);
+
+    let imgData =  context.getImageData(0, 0, cv.width, cv.height);
+
+    var i;
+    for (i = 0; i < imgData.data.length; i += 4) {
+        imgData.data[i] = 255 - imgData.data[i];
+        imgData.data[i+1] = 255 - imgData.data[i+1];
+        imgData.data[i+2] = 255 - imgData.data[i+2];
+        imgData.data[i+3] = 255;
+    }
+context.putImageData(imgData, 0, 0);
+}
+);
+
+
+/*
+let cValue = document.querySelector("#cValue");
+let bValue = document.querySelector("#bValue");
+let sValue = document.querySelector("#sValue");
 
 let cContrast = document.querySelector("#contrast");
-display.innerHTML = cContrast.value;
+cValue.innerHTML = cContrast.value;
 
-cContrast.oninput = function() { display.innerHTML = this.value; }
+let cBrightness = document.querySelector("#brightness");
+bValue.innerHTML = cBrightness.value;
 
+let cSaturation = document.querySelector("#saturation");
+sValue.innerHTML = cSaturation.value;
 
+cContrast.oninput = function() { cValue.innerHTML = this.value; }
+cBrightness.oninput = function() { bValue.innerHTML = this.value; }
+cSaturation.oninput = function() { sValue.innerHTML = this.value; } 
 
-img = document.createElement('img');
-img.src = imgUrl;
-img.addEventListener('load', function(e) {
-    
-});
+*/
